@@ -1,0 +1,69 @@
+<script>
+  function maxLengthCheck(object) {
+    if (object.value.length > object.max.length)
+      object.value = object.value.slice(0, object.max.length)
+  }
+    
+  function isNumeric (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]|\./;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+</script>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/eventos/editar-evento/{{evento.id}}" method="POST">
+                        <div class="form-group">
+                            Data do evento <br />
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="dia" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type = "number" placeholder=" dia" min = "1" max = "31" value="{{evento.dia}}" autofocus required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="mes" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type = "number" placeholder=" mês" min = "1" max = "12" value="{{evento.mes}}" required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="ano" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type = "number" placeholder=" ano" min = "1" max = "9999" value="{{evento.ano}}" required/>
+                        </div>
+                        <div class="form-group">
+                            Evento
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="evento" class="form-control" placeholder="evento" value="{{evento.evento}}" required/>
+                        </div>
+                        <div class="form-group">
+                            Voluntário responsável
+                            <input type="text" class="form-control" placeholder="voluntário responsável" value="{{evento.responsavel}}"/>
+                        </div>
+                        <div class="form-group">
+                            Agendas para levar
+                            <input type="number" name="agenda" class="form-control" placeholder="agendas para levar" value="{{evento.agenda}}"/>
+                        </div>
+                        <div class="form-group">
+                            Calendários para levar
+                            <input type="number" name="calendario" class="form-control" placeholder="quem calendários para levar" value="{{evento.calendario}}"/>
+                        </div>
+                        <div class="form-group">
+                            Agendas vendidas
+                            <input type="number" name="a_vendida" class="form-control" placeholder="agendas vendidas" value="{{evento.a_vendida}}"/>
+                        </div>
+                        <div class="form-group">
+                            Calendários vendidos
+                            <input type="number" name="c_vendido" class="form-control" placeholder="calendários vendidos" value="{{evento.c_vendido}}"/>
+                        </div>
+                        <div class="form-group">
+                            Observação
+                            <textarea name="obs" rows="2" class="form-control" placeholder="observação">{{evento.obs}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

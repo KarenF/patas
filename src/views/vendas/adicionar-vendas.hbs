@@ -1,0 +1,44 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form action="/venda/adicionar-vendas" method="POST">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="local" class="form-control" placeholder="local" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="endereco" class="form-control" placeholder="endereço"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="contato" rows="2" class="form-control" placeholder="contato"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="leva" rows="2" class="form-control" placeholder="quem leva"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="v_responsavel" rows="2" class="form-control" placeholder="voluntário responsável"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="agendas" class="form-control" placeholder="agendas"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="calendarios" class="form-control" placeholder="calendários"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="pago" class="form-control" placeholder="já pago"/>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="observacao" rows="2" class="form-control" placeholder="observação"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSalvaAddVenda" class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

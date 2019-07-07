@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="http://www.patasdadas.com.br/">
+      <img src="/img/logobranco.png" height="20" width=20"> Patas Dadas
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {{#if user}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            Tabelas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a id="navbarColaboradores" class="dropdown-item" href="/colaboradores">Colaboradores</a>
+              <div class="dropdown-divider"></div>
+              <a id="navbarColeta" class="dropdown-item" href="/coleta">Coleta</a>
+              <div class="dropdown-divider"></div>
+              <a id="navbarEstoque" class="dropdown-item" href="/estoque">Estoque</a>
+              <div class="dropdown-divider"></div>
+              <a id="navbarEventos" class="dropdown-item" href="/eventos">Eventos</a>
+              <div class="dropdown-divider"></div>
+              <a id="navbarVenda" class="dropdown-item" href="/venda">Pontos de venda</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a id="navbarPerfil" class="nav-link" href="/perfil">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a id="navbarCadastrar" class="nav-link" href="/cadastrar">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a id="navbarSair" class="nav-link" href="/logout">Sair</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

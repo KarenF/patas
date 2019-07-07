@@ -1,0 +1,113 @@
+<div style="text-align:center">
+  <br />
+  <h3>Cronograma dos eventos</h3>
+  <br />
+</div>
+<th> 
+  &nbsp &nbsp<a id="btnAddEventos" class="btn btn-info" href="/eventos/adicionar-evento">Adicionar dados</a>
+</th>
+<br />
+<br />
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width: 12.66%" scope="col"></th>
+        <th scope="col">Data</th>
+        <th scope="col">Evento</th>
+        <th scope="col">Voluntário responsável</th>
+        <th scope="col">Agendas para levar</th>
+        <th scope="col">Calendários para levar</th>
+        <th scope="col">Agendas vendidas</th>
+        <th scope="col">Calendários vendidos</th>
+        <th scope="col">Total arrecadado</th>
+        <th scope="col">Observação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each eventos}}
+        <tr>
+          <th scope="row"> 
+            <a id="btnDeleteEventos" class="btn btn-danger" href="/eventos/delete/{{id}}">
+                Deletar
+            </a>
+            <a id="btnEditEventos" class="btn btn-secondary" href="/eventos/editar-evento/{{id}}">
+                Editar
+            </a>
+          </th>
+            <td>{{dia}}/{{mes}}/{{ano}}</td>
+            <td>{{evento}}</td>
+            <td>{{responsavel}}</td>
+            <td>{{agenda}}</td>
+            <td>{{calendario}}</td>
+            <td>{{a_vendida}}</td>
+            <td>{{c_vendido}}</td>
+            <td>R&#36;{{total}}</td>
+            <td>{{obs}}</td>
+        </tr>
+      {{/each}}
+      {{#each soma_eventos}}
+        <tr class="table-primary">
+          <th scope="row">
+            TOTAL
+          </th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{s_a_vendida}}</td>
+          <td>{{s_c_vendido}}</td>
+          <td>R&#36;{{s_total}}</td>
+        <td></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+        <h3>Registros</h3>
+        <br/>
+      </div>
+      <tr>
+        <th scope="col">Voluntário</th>
+        <th scope="col">Data da alteração</th>
+        <th scope="col">Alteração</th>
+        <th scope="col">Data</th>
+        <th scope="col">Evento</th>
+        <th scope="col">Voluntário responsável</th>
+        <th scope="col">Agendas para levar</th>
+        <th scope="col">Calendários para levar</th>
+        <th scope="col">Agendas vendidas</th>
+        <th scope="col">Calendários vendidos</th>
+        <th scope="col">Total arrecadado</th>
+        <th scope="col">Observação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {{#each registro}}
+          <th scope="row"> 
+            {{fullname}}
+          </th>
+          <td>{{data_registro}}</td>
+          <td>{{flag}}</td>
+          <td>{{dia}}/{{mes}}/{{ano}}</td>
+          <td>{{evento}}</td>
+          <td>{{responsavel}}</td>
+          <td>{{agenda}}</td>
+          <td>{{calendario}}</td>
+          <td>{{a_vendida}}</td>
+          <td>{{c_vendido}}</td>
+          <td>R&#36;{{total}}</td>
+          <td>{{obs}}</td>
+        </tr>
+        {{/each}}
+      <tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,53 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/venda/editar-vendas/{{venda.id}}" method="POST">
+                        <div class="form-group">
+                            Local
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="local" class="form-control" placeholder="local" value="{{venda.local}}" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            Endereço
+                            <input type="text" name="endereco" class="form-control" placeholder="endereço" value="{{venda.endereco}}"/>
+                        </div>
+                        <div class="form-group">
+                            Contato
+                            <input type="text" name="contato" class="form-control" placeholder="contato" value="{{venda.contato}}"/>
+                        </div>
+                        <div class="form-group">
+                            Quem leva
+                            <input type="text" name="leva" class="form-control" placeholder="quem leva" value="{{venda.leva}}"/>
+                        </div>
+                        <div class="form-group">
+                            Voluntário responsável
+                            <input type="text" name="v_responsavel" class="form-control" placeholder="voluntário responsável" value="{{venda.v_responsavel}}"/>
+                        </div>
+                        <div class="form-group">
+                            Agendas
+                            <input type="number" name="agendas" class="form-control" placeholder="agendas" value="{{venda.agendas}}"/>
+                        </div>
+                        <div class="form-group">
+                            Calendários
+                            <input type="number" name="calendarios" class="form-control" placeholder="calendários" value="{{venda.calendarios}}"/>
+                        </div>
+                        <div class="form-group">
+                            Já pago
+                            <input type="text" name="pago" class="form-control" placeholder="já pago" value="{{venda.pago}}"/>
+                        </div>
+                        <div class="form-group">
+                            Observação
+                            <textarea name="observacao" rows="2" class="form-control" placeholder="observação">{{venda.observacao}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

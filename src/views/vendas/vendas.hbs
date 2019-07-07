@@ -1,0 +1,170 @@
+<div>
+  <br />
+  <h3>&nbsp Preço das agendas e dos calendários</h3>
+  <br />
+</div>
+  {{#preco}}    
+  {{/preco}}
+  {{^preco}}
+    <th> 
+      &nbsp &nbsp<a id="btnAddPreco" class="btn btn-info" href="/venda/adicionar-preco">Adicionar valores</a>
+    </th>
+    <br />
+    <br />
+  {{/preco}}  
+  <div style="text-align:center">
+    <table class="table table-striped" style="max-width:400px;">
+      <thead>
+        <tr>
+         </tr>
+          <th style="width: 40.66%">
+          </th>
+          <th>
+              Agenda
+          </th>
+          <th>
+              Calendário
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each preco}}
+        <tr>
+          <th scope="row">
+            <a id="btnDeletePreco" class="btn btn-danger" href="/venda/preco/delete/{{id}}">
+                Deletar
+            </a>
+            <a id="btnEditPreco" class="btn btn-secondary" href="/venda/editar-preco/{{id}}">
+                Editar
+            </a>
+          </th>
+            <td>R&#36;{{p_agenda}}</td>
+            <td>R&#36;{{p_calendario}}</td>
+        </tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+      
+<div style="text-align:center">
+  <br />
+  <h3>Pontos de venda das agendas e dos calendários</h3>
+  <br />
+</div>
+  <th> 
+    &nbsp &nbsp<a id="btnAddVenda" class="btn btn-info" href="/venda/adicionar-vendas">Adicionar dados</a>
+  </th>
+<br />
+<br />
+  <div style="text-align:center">
+    <table class="table table-striped">
+      <thead>                  
+        <tr>
+          <th style="width: 12.66%" scope="col"></th>
+          <th scope="col">Local</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Contato</th>
+          <th scope="col">Quem leva</th>
+          <th scope="col">Voluntário responsável</th>
+          <th scope="col">Agenda</th>
+          <th scope="col">Calendário</th>
+          <th scope="col">Total</th>
+          <th scope="col">Já pago</th>
+          <th scope="col">A pagar</th>
+          <th scope="col">Observação</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each vendas}}
+      <tr>
+        <th scope="row">
+          <a id="btnDeleteVenda" class="btn btn-danger" href="/venda/delete/{{id}}">
+              Deletar
+          </a>
+          <a id="btnEditVenda" class="btn btn-secondary" href="/venda/editar-vendas/{{id}}">
+              Editar
+          </a>
+        </th>
+        <td>{{local}}</td>
+        <td>{{endereco}}</td>
+        <td>{{contato}}</td>
+        <td>{{leva}}</td>
+        <td>{{v_responsavel}}</td>
+        <td>{{agendas}}</td>
+        <td>{{calendarios}}</td>
+        <td>R&#36;{{totais}}</td>
+        <td>R&#36;{{pago}}</td>
+        <td>R&#36;{{pagar}}</td>
+        <td>{{observacao}}</td>
+      </tr>
+      {{/each}}
+      {{#each soma_vendas}}
+         <tr class="table-primary">
+          <th scope="row">
+            TOTAL
+          </th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{s_agendas}}</td>
+          <td>{{s_calendarios}}</td>
+          <td>R&#36;{{s_totais}}</td>
+          <td>R&#36;{{s_pago}}</td>
+          <td>R&#36;{{s_pagar}}</td>
+          <td></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+        <h3>Registros</h3>
+        <br>
+      </div>                   
+      <tr>
+        <th scope="col">Voluntário</th>
+        <th scope="col">Data da alteração</th>
+        <th scope="col">Alteração</th>
+        <th scope="col">Local</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Contato</th>
+        <th scope="col">Quem leva</th>
+        <th scope="col">Voluntário responsável</th>
+        <th scope="col">Agenda</th>
+        <th scope="col">Calendário</th>
+        <th scope="col">Total</th>
+        <th scope="col">Já pago</th>
+        <th scope="col">A pagar</th>
+        <th scope="col">Observação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each registro}}
+        <tr>
+          <th scope="row">
+            {{fullname}}
+          </th>
+          <td>{{data_registro}}</td>
+          <td>{{flag}}</td>
+          <td>{{local}}</td>
+          <td>{{endereco}}</td>
+          <td>{{contato}}</td>
+          <td>{{leva}}</td>
+          <td>{{v_responsavel}}</td>
+          <td>{{agendas}}</td>
+          <td>{{calendarios}}</td>
+          <td>R&#36;{{totais}}</td>
+          <td>R&#36;{{pago}}</td>
+          <td>R&#36;{{pagar}}</td>
+          <td>{{observacao}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

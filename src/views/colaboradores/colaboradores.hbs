@@ -1,0 +1,76 @@
+<div style="text-align:center">
+  <br />
+  <h3>Classificação dos colaboradores</h3>
+  <br />
+</div>
+  <th> 
+    &nbsp &nbsp<a id="btnAddColab" class="btn btn-info" href="/colaboradores/adicionar-colaboradores">Adicionar dados</a>
+  </th>
+  <br />
+  <br />
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width: 12.66%" scope="col"></th>
+        <th scope="col">Pontos que recusaram</th>
+        <th scope="col">Pontos que deram problemas</th>
+        <th scope="col">Pontos ótimos</th>
+        <th style="width: 22.66%" scope="col">Pontos neutros</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each colaboradores}}
+        <tr>
+          <th scope="row">
+            <a id="btnDeleteColab" class="btn btn-danger" href="/colaboradores/delete/{{id}}">
+                Deletar
+            </a>
+            <a id="btnEditColab" class="btn btn-secondary" href="/colaboradores/editar-colaboradores/{{id}}">
+                Editar
+            </a>
+          </th>
+          <td>{{recusaram}}</td>
+          <td>{{problemas}}</td>
+          <td>{{bons}}</td>
+          <td>{{neutros}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+        <h3>Registros</h3>
+        <br/>
+      </div>                   
+      <tr>
+      <th scope="col">Voluntário</th>
+      <th scope="col">Data da alteração</th>
+      <th scope="col">Alteração</th>
+      <th scope="col">Pontos que recusaram</th>
+      <th scope="col">Pontos que deram problemas</th>
+      <th scope="col">Pontos ótimos</th>
+      <th scope="col">Pontos neutros</th>
+    </tr>
+    </thead>
+    <tbody>
+      {{#each registro}}
+        <tr>
+          <th scope="row">
+            {{fullname}}
+          </th>
+          <td>{{data_registro}}</td>
+          <td>{{flag}}</td>
+          <td>{{recusaram}}</td>
+          <td>{{problemas}}</td>
+          <td>{{bons}}</td>
+          <td>{{neutros}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

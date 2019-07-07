@@ -1,0 +1,30 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/venda/editar-preco/{{precos.id}}" method="POST">
+                        <div class="text-danger" >
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Para valores não inteiros utilize ponto (.) ao invés de vírgula (,) - exemplo: 10.75</li>
+                          </ul>
+                        </div>
+                        <div class="form-group">
+                            Preço da agenda
+                            <input oninvalid="this.setCustomValidity('utilizar padrão de escrita com ponto - exemplo: 10.75')" oninput="this.setCustomValidity('')" type="number" step="0.01" min="0" max="100" name="p_agenda" class="form-control" placeholder="preço da agenda" value="{{precos.p_agenda}}" autofocus/>
+                        </div>
+                        <div class="form-group">
+                            Preço do calendário
+                            <input oninvalid="this.setCustomValidity('utilizar padrão de escrita com ponto - exemplo: 10.75')" oninput="this.setCustomValidity('')" type="number" step="0.01" min="0" max="100" name="p_calendario" class="form-control" placeholder="preço do calendário" value="{{precos.p_calendario}}"/>
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSalvaEditPreco" class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

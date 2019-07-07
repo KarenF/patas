@@ -1,0 +1,37 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/estoque/editar-estoque/{{estoques.id}}" method="POST">
+                        <div class="form-group">
+                            Nome do voluntário
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="nome" class="form-control" placeholder="nome do voluntário" value="{{estoques.nome}}" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            Item
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="item" class="form-control" placeholder="item" value="{{estoques.item}}" required/>
+                        </div>
+                        <div class="form-group">
+                            Quantidade recebida
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="q_recebida" class="form-control" placeholder="quantidade recebida" value="{{estoques.q_recebida}}" required/>
+                        </div>
+                        <div class="form-group">
+                            Quantidade devolvida
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="q_devolvida" class="form-control" placeholder="quantidade devolvida" value="{{estoques.q_devolvida}}"/>
+                        </div>
+                        <div class="form-group">
+                            Observação
+                            <textarea name="obs" rows="2" class="form-control" placeholder="observação">{{estoques.obs}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

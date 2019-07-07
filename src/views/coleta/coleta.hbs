@@ -1,0 +1,76 @@
+<div style="text-align:center">
+  <br />
+  <h3>Pontos de coleta</h3>
+  <br />
+</div>
+  <th> 
+    &nbsp &nbsp<a id="btnAddColeta" class="btn btn-info" href="/coleta/adicionar-coleta">Adicionar dados</a>
+  </th>
+  <br />
+  <br />
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width: 12.66%" scope="col"></th>
+        <th scope="col">Nome do local</th>
+        <th scope="col">Data</th>
+        <th scope="col">Item</th>
+        <th scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each coleta}}
+        <tr>
+          <th scope="row">
+            <a id="btnDeleteColeta" class="btn btn-danger" href="/coleta/delete/{{id}}">
+                Deletar
+            </a>
+            <a id="btnEditColeta" class="btn btn-secondary" href="/coleta/editar-coleta/{{id}}">
+                Editar
+            </a>
+          </th>
+          <td>{{nome_local}}</td>
+          <td>{{dia_coleta}}/{{mes_coleta}}/{{ano_coleta}}</td>
+          <td>{{item}}</td>
+          <td>{{quantidade}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+        <h3>Registros</h3>
+        <br/>
+      </div>                   
+      <tr>
+      <th scope="col">Voluntário</th>
+      <th scope="col">Data da alteração</th>
+      <th scope="col">Alteração</th>
+      <th scope="col">Nome do local</th>
+      <th scope="col">Data</th>
+      <th scope="col">Item</th>
+      <th scope="col">Quantidade</th>
+    </tr>
+    </thead>
+    <tbody>
+      {{#each registro}}
+        <tr>
+          <th scope="row">
+            {{fullname}}
+          </th>
+          <td>{{data_registro}}</td>
+          <td>{{flag}}</td>
+          <td>{{nome_local}}</td>
+          <td>{{dia_coleta}}/{{mes_coleta}}/{{ano_coleta}}</td>
+          <td>{{item}}</td>
+          <td>{{quantidade}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

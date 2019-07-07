@@ -1,0 +1,32 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/estoque/adicionar-estoque" method="POST">
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="nome" class="form-control" placeholder="nome do voluntário" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="item" class="form-control" placeholder="item" required/>
+                        </div>
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="q_recebida" class="form-control" placeholder="quantidade recebida" required/>
+                        </div>
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="q_devolvida" class="form-control" placeholder="quantidade devolvida"/>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="obs" rows="2" class="form-control" placeholder="observação"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSalvaAddEstoque" class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

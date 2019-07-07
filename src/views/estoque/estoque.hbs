@@ -1,0 +1,80 @@
+<div style="text-align:center">
+  <br />
+  <h3>Produtos em estoque</h3>
+  <br />
+</div>
+  <th> 
+    &nbsp &nbsp<a id="btnAddEstoque" class="btn btn-info" href="/estoque/adicionar-estoque">Adicionar dados</a>
+  </th>
+  <br />
+  <br />
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width: 12.66%" scope="col"></th>
+        <th scope="col">Nome do voluntário</th>
+        <th scope="col">Item</th>
+        <th scope="col">Quantidade recebida</th>
+        <th scope="col">Quantidade devolvida</th>
+        <th scope="col">Observação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each estoque}}
+        <tr>
+          <th scope="row">
+            <a id="btnDeleteEstoque" class="btn btn-danger" href="/estoque/delete/{{id}}">
+                Deletar
+            </a>
+            <a id="btnEditEstoque" class="btn btn-secondary" href="/estoque/editar-estoque/{{id}}">
+                Editar
+            </a>
+          </th>
+          <td>{{nome}}</td>
+          <td>{{item}}</td>
+          <td>{{q_recebida}}</td>
+          <td>{{q_devolvida}}</td>
+          <td>{{obs}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+        <h3>Registros</h3>
+        <br/>
+      </div>                   
+      <tr>
+      <th scope="col">Voluntário</th>
+      <th scope="col">Data da alteração</th>
+      <th scope="col">Alteração</th>
+      <th scope="col">Nome do voluntário</th>
+      <th scope="col">Item</th>
+      <th scope="col">Quantidade recebida</th>
+      <th scope="col">Quantidade devolvida</th>
+      <th scope="col">Observação</th>
+    </tr>
+    </thead>
+    <tbody>
+      {{#each registro}}
+        <tr>
+          <th scope="row">
+            {{fullname}}
+          </th>
+          <td>{{data_registro}}</td>
+          <td>{{flag}}</td>
+          <td>{{nome}}</td>
+          <td>{{item}}</td>
+          <td>{{q_recebida}}</td>
+          <td>{{q_devolvida}}</td>
+          <td>{{obs}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

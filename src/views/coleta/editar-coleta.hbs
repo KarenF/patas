@@ -1,0 +1,53 @@
+<script>
+  function maxLengthCheck(object) {
+    if (object.value.length > object.max.length)
+      object.value = object.value.slice(0, object.max.length)
+  }
+    
+  function isNumeric (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]|\./;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+</script>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/coleta/editar-coleta/{{coletas.id}}" method="POST">
+                        <div class="form-group">
+                            Nome do local
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="text" name="nome_local" class="form-control" placeholder="nome do local" value="{{coletas.nome_local}}" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            Data <br />
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="dia_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type ="number" placeholder=" dia" min = "1" max = "31" value="{{coletas.dia_coleta}}" required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="mes_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type ="number" placeholder=" mês" min = "1" max = "12" value="{{coletas.mes_coleta}}" required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="ano_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type ="number" placeholder=" ano" min = "1" max = "9999" value="{{coletas.ano_coleta}}" required/>
+                        </div>
+                        <div class="form-group">
+                            Item
+                            <input type="text" name="item" class="form-control" placeholder="item" value="{{coletas.item}}">
+                        </div>
+                        <div class="form-group">
+                            Quantidade
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="quantidade" rows="2" class="form-control" placeholder="quantidade" value="{{coletas.quantidade}}" required/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

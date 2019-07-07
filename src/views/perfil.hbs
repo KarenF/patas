@@ -1,0 +1,40 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                  <h3>Olá {{user.fullname}}</h3>
+                  <h5>você está logado como {{user.username}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align:center">
+  <br />
+   <h3>Lista dos voluntários do Patas cadastrados neste ambiente</h3>
+  <br />
+</div>
+<div style="text-align:center">
+  <table class="table table-striped">
+    <thead>
+      <div style="text-align:center">
+      </div>
+      <tr>
+        <th scope="col">Nome completo</th>
+        <th scope="col">Usuário</th>
+        <th style="width: 40.66%" scope="col">Data do cadastro</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each voluntarios}}
+      <tr>
+        <td>{{fullname}}</td>
+        <td>{{username}}</td>
+        <td>{{data_registro}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>

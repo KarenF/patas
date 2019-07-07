@@ -1,0 +1,49 @@
+<script>
+    function maxLengthCheck(object) {
+        if (object.value.length > object.max.length)
+          object.value = object.value.slice(0, object.max.length)
+        }
+
+        function isNumeric (evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode (key);
+        var regex = /[0-9]|\./;
+        if ( !regex.test(key) ) {
+          theEvent.returnValue = false;
+          if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/coleta/adicionar-coleta" method="POST">
+                        <div class="form-group">
+                            <input type="text" oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="nome_local" class="form-control" placeholder="nome do local" autofocus required/>
+                        </div>
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="dia_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" placeholder=" dia" min = "1" max = "31" required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="mes_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" placeholder=" mês" min = "1" max = "12" required/>
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" name="ano_coleta" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" type="number" placeholder=" ano" min = "1" max = "9999" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="item" class="form-control" placeholder="item">
+                        </div>
+                        <div class="form-group">
+                            <input oninvalid="this.setCustomValidity('campo obrigatório')" oninput="this.setCustomValidity('')" type="number" name="quantidade" class="form-control" placeholder="quantidade" required/>
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSalvaAddColeta" class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

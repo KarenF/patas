@@ -1,0 +1,33 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/colaboradores/editar-colaboradores/{{colaborador.id}}" method="POST">
+                        <div class="form-group">
+                            Pontos que recusaram ser parceiros
+                            <input type="text" name="recusaram" class="form-control" placeholder="pontos que recusaram" value="{{colaborador.recusaram}}" autofocus>
+                        </div>
+                        <div class="form-group">
+                            Pontos que deram problemas
+                            <input type="text" name="problemas" class="form-control" placeholder="pontos que deram problemas" value="{{colaborador.problemas}}">
+                        </div>
+                        <div class="form-group">
+                            Pontos ótimos
+                            <input type="text" name="bons" class="form-control" placeholder="pontos ótimos" value="{{colaborador.bons}}">
+                        </div>
+                        <div class="form-group">
+                            Pontos neutros
+                            <input type="text" name="neutros" class="form-control" placeholder="pontos neutros" value="{{colaborador.neutros}}">
+                        </div>
+                        <div class="form-group">
+                            <button id="btnSalvaEditColab" class="btn btn-success btn-block">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>
