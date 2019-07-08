@@ -55,9 +55,10 @@ passport.use('local.redefinir-senha', new LocalStrategy({
   };
   const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
   if (rows.length > 0) {
+    const user = rows[0]
     newUser.password = await helpers.encryptPassword(password);
     await pool.query('UPDATE users SET password = ? WHERE username = ?', [newUser.password, username]);
-    done(null, false, req.flash('success', 'Senha alterada com sucesso'));
+    done(null, user, req.flash('success', 'Senha alterada com sucesso'));
   } else {
     return done(null, false, req.flash('message', 'O usuário não existe'));
   }
