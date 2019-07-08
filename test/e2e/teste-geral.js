@@ -351,25 +351,31 @@ module.exports = {
     .pause(4000)
   },
 
-  'Step thirty-six: Clicar no navbar' : function (client){
+  'Step thirty-six: Deletar ponto de venda' : function(client){
+    client
+    .click('#btnDeleteVenda')
+    .pause(4000)
+  },
+
+  'Step thirty-seven: Clicar no navbar' : function (client){
     client
     .click('#navbarDropdown')
     .pause(1000)
   },
 
-  'Step thirty-seven: Acessar o perfil' : function(client){
+  'Step thirty-eight: Acessar o perfil' : function(client){
     client
     .click('#navbarPerfil')
     .pause(4000)
   },
 
-  'Step thirty-eight: Clicar no navbar' : function (client){
+  'Step thirty-nine: Clicar no navbar' : function (client){
     client
     .click('#navbarDropdown')
     .pause(1000)
   },
 
-  'Step thirty-nine: Acessar o cadastramento' : function(client){
+  'Step forty: Acessar o cadastramento' : function(client){
     client
     .click('#navbarCadastrar')
     .pause(4000)
@@ -382,19 +388,19 @@ module.exports = {
     .pause(2000)
   },
 
-  'Step forty: Acessar o perfil' : function (client) {
+  'Step forty-one: Acessar o perfil' : function (client) {
      client
       .click('#navbarPerfil')
       .pause(4000)
   },
 
-  'Step forty-one: Sair da aplicação' : function(client){
+  'Step forty-two: Sair da aplicação' : function(client){
     client
     .click('#navbarSair')
     .pause(1000)
   },
 
-  'Step forty-two: Retorna para a página de login' : function(client){
+  'Step forty-three: Retorna para a página de login' : function(client){
     client
     .url('http://localhost:4000')
     .pause(1000)

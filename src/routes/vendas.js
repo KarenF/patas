@@ -36,7 +36,7 @@ router.post('/adicionar-vendas', async (req, res) => {
     }
     await pool.query('INSERT INTO vendas SET ?', [newLink]);
     const data = await pool.query('SELECT DATE_FORMAT(criado_em, "%D %M %Y") as data FROM vendas ORDER BY id DESC LIMIT 1');
-    await pool.query('UPDATE vendas SET data_registro = ? WHERE id = LAST_INSERT_ID()', data[0].data);
+    await pool.query('UPDATE vendas SET data_registro = ? ORDER BY id DESC LIMIT 1', data[0].data);
     const aqui = await pool.query('SELECT id FROM vendas ORDER BY id DESC LIMIT 1');
     const preco = await pool.query('SELECT * FROM preco');
     if(typeof preco === undefined || preco.length === 0){
