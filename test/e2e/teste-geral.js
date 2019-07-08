@@ -398,12 +398,6 @@ module.exports = {
     client
     .click('#navbarSair')
     .pause(1000)
-  },
-
-  'Step forty-three: Retorna para a página de login' : function(client){
-    client
-    .url('http://localhost:4000')
-    .pause(1000)
     .end();
-  },
+  }
 };
