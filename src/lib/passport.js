@@ -35,13 +35,19 @@ passport.use('local.cadastrar', new LocalStrategy({
     username,
     password
   };
-  newUser.password = await helpers.encryptPassword(password);
-  await pool.query('INSERT INTO users SET ? ', newUser);
-  const data = await pool.query('SELECT DATE_FORMAT(criado_em, "%D %M %Y") as data FROM users ORDER BY id DESC LIMIT 1');
-  await pool.query('UPDATE users SET data_registro = ? ORDER BY id DESC LIMIT 1', data[0].data);
-  const result = await pool.query('SELECT * FROM users');
-  newUser.id = result.insertId;
-  return done(null, false, req.flash('success', 'Usuário ' + newUser.username + ' cadastrado com sucesso'));
+  const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+  if (rows.length > 0) {
+    const user = rows[0];
+    done(null, false, req.flash('message', 'Usuário ' + user.username + ' já está cadastrado'));
+  }else{
+    newUser.password = await helpers.encryptPassword(password);
+    await pool.query('INSERT INTO users SET ? ', newUser);
+    const data = await pool.query('SELECT DATE_FORMAT(criado_em, "%D %M %Y") as data FROM users ORDER BY id DESC LIMIT 1');
+    await pool.query('UPDATE users SET data_registro = ? ORDER BY id DESC LIMIT 1', data[0].data);
+    const result = await pool.query('SELECT * FROM users');
+    newUser.id = result.insertId;
+    return done(null, false, req.flash('success', 'Usuário ' + newUser.username + ' cadastrado com sucesso'));
+  }
 }));
 
 passport.use('local.redefinir-senha', new LocalStrategy({

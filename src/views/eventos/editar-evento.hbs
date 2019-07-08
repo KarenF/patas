@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             Voluntário responsável
-                            <input type="text" class="form-control" placeholder="voluntário responsável" value="{{evento.responsavel}}"/>
+                            <input type="text" name="responsavel" class="form-control" placeholder="voluntário responsável" value="{{evento.responsavel}}"/>
                         </div>
                         <div class="form-group">
                             Agendas para levar
@@ -57,7 +57,7 @@
                             <textarea name="obs" rows="2" class="form-control" placeholder="observação">{{evento.obs}}</textarea>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success btn-block">
+                            <button id="btnSalvaEditEventos" class="btn btn-success btn-block">
                                 Salvar
                             </button>
                         </div>
