@@ -44,6 +44,25 @@ passport.use('local.cadastrar', new LocalStrategy({
   return done(null, false, req.flash('success', 'Usuário ' + newUser.username + ' cadastrado com sucesso'));
 }));
 
+passport.use('local.redefinir-senha', new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password',
+  passReqToCallback: true
+}, async (req, username, password, done) => {
+  let newUser = {
+    username,
+    password
+  };
+  const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+  if (rows.length > 0) {
+    newUser.password = await helpers.encryptPassword(password);
+    await pool.query('UPDATE users SET password = ? WHERE username = ?', [newUser.password, username]);
+    done(null, false, req.flash('success', 'Senha alterada com sucesso'));
+  } else {
+    return done(null, false, req.flash('message', 'O usuário não existe'));
+  }
+}));
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });

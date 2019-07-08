@@ -5,7 +5,7 @@ const passport = require('passport');
 const pool = require('../database');
 const { isLoggedIn } = require('../lib/auth');
 
-router.get('/cadastrar', (req, res) => {
+router.get('/cadastrar', isLoggedIn, (req, res) => {
   res.render('auth/cadastrar');
 });
 
@@ -30,6 +30,25 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local.login', {
     successRedirect: '/perfil',
     failureRedirect: '/login',
+    failureFlash: true
+  })(req, res, next);
+});
+
+router.get('/redefinir-senha', (req, res) => {
+  res.render('auth/redefinir-senha');
+});
+
+router.post('/redefinir-senha', (req, res, next) => {
+  req.check('username', 'Usuário não informado').notEmpty();
+  req.check('password', 'Senha não informada').notEmpty();
+  const errors = req.validationErrors();
+  if (errors.length > 0) {
+    req.flash('message', errors[0].msg);
+    res.redirect('/redefinir-senha');
+  }
+  passport.authenticate('local.redefinir-senha', {
+    successRedirect: '/login',
+    failureRedirect: '/redefinir-senha',
     failureFlash: true
   })(req, res, next);
 });
